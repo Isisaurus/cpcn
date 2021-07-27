@@ -61,6 +61,19 @@ To test the API send the following requests to these endpoints:
 - GET: https://cpcn.herokuapp.com/api/v1/pups => get all puppy news
 - POST: https://cpcn.herokuapp.com/api/v1/events => this route is protected, the response status is fail, authentication is required
 
+## Technology used
+
+This application is a server-side rendered website with a REST API in the back-end connected to a MongoDB noSQL database.
+
+- Node.js environment in the back-end
+- Express.js for server-side rendering, middlewares and complex routing
+- MongoDB hosted with Atlas as database
+- Mongoose for schemas and models
+- pug for page templating and HTML emails
+- ES6 modules for client-side Javascript
+- SASS for styling and animations
+- JWT for authentication
+
 ## Code architecture: MVC
 
 In this project I have structured the application according to the Model-View-Controller (MVC) architecture based on the following principles:
@@ -137,7 +150,7 @@ To keep the controllers clean and simple, I have offloaded as much logic as poss
   rate limiting: blocks user requests over 100/hour (express-rate-limit npm package)
 - Data sanitization: clean user input (mongoSanitize, xss-clean npm packages)
 - Parameter pollution prevention for clean query strings (hpp npm package for deleteing duplicate queries (no whitelist))
-- Strongly encrypted passwords with lenght over 8 characters
+- Strongly encrypted passwords with length over 8 characters
 - bcrypt npm package for slow login request
 - JWT stored in HTTPOnly cookies, expires in 24 hours
 - highly defined Mongoose Schemas for safe database documents with custom validation if required
