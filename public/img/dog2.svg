@@ -1,0 +1,27 @@
+<svg id="dog2svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 229.66 231.12">
+  <defs>
+    <linearGradient id="linear-gradient" x1="251.49" y1="126.39" x2="182.76" y2="67.65" gradientTransform="matrix(1, 0, 0, -1, 0, 336)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffc837"/>
+      <stop offset="1" stop-color="#ff8008"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="169.65" y1="256.84" x2="122.24" y2="63.43" gradientTransform="matrix(1, 0, 0, -1, 0, 336)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#985cff"/>
+      <stop offset="1" stop-color="#370091"/>
+    </linearGradient>
+    <clipPath id="clip-path" transform="translate(-46.88 -56.03)">
+      <path d="M230,213.36C196.64,290,177.94,287.29,154,280S55.75,221.59,47.85,197.27,64.89,87.63,144.68,56,263.32,136.74,230,213.36Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <title>dog2</title>
+  <g id="ellipse2">
+    <path d="M167.88,230.64c29.83-32.9,40.84-31.95,54.45-29.09s52.38,23.86,54.14,34.12S248.16,265,195.75,279.21,138.05,263.55,167.88,230.64Z" transform="translate(-46.88 -56.03)" fill="url(#linear-gradient)"/>
+  </g>
+  <g id="ellipse1">
+    <path d="M230,213.36C196.64,290,177.94,287.29,154,280S55.75,221.59,47.85,197.27s32.57-68.19,112.36-99.79S263.32,136.74,230,213.36Z" transform="translate(-46.88 -56.03)" fill="url(#linear-gradient-2)"/>
+  </g>
+  <g id="mask_group">
+    <g clip-path="url(#clip-path)">
+      <image id="dog2" width="197" height="269" transform="translate(17.17) scale(0.86)" xlink:href="dog2svg.png"/>
+    </g>
+  </g>
+</svg>

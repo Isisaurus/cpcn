@@ -1,0 +1,74 @@
+extends baseEmail
+
+block content
+    p Hallo Penningmeester!
+    p=`Er is een nieuwe aanmelding voor een lidmaatschap van ${user.firstName} ${user.lastName}.`
+    h3 Gegevens lid:
+    p 
+        table
+            tbody
+                tr
+                    td Voornaam 
+                    td=user.firstName
+                tr
+                    td Achternaam 
+                    td=user.lastName
+                tr
+                    td Voorletters
+                    td=user.initials
+                tr
+                    td Geboortedatum
+                    td=user.dateOfBirth
+                tr
+                    td E-mailadres
+                    td=user.email
+                tr
+                    td Telefoonnummer
+                    td=user.phone
+                tr
+                    td Adres
+                    td=`${user.address.country}, ${user.address.postcode} ${user.address.city}, ${user.address.street}`
+                tr
+                    td Lidmaatschapsgeld
+                    td=`${user.fee} €`
+                tr 
+                    td Datum 
+                    td=user.joinedAt
+    h3 Gezinsleden
+    p
+        table
+            tbody
+                - const familyMems = user.familyMembers;
+                - const checkFamMem = user.familyMembers[0]
+                - if (checkFamMem)
+                    tr 
+                        th VOORNAAM 
+                        th ACHTERNAAM
+                        th GEBOORTEDATUM
+                    each familyMem in familyMems
+                        tr
+                            td=familyMem.firstName 
+                            td=familyMem.lastName 
+                            td=familyMem.dateOfBirth 
+                - else
+                    tr 
+                        td Geen gezinsleden.
+    h3 Honden
+    p 
+        table
+            tbody
+                tr 
+                    td Rn.
+                    td GD.
+                    td Gender 
+                    td Stamboom 
+                    td Registratie Nummer
+                - const dogs = user.dogs;
+                each dog in dogs
+                    tr
+                        th=dog.nickname 
+                        td=dog.dateOfBirth
+                        td=dog.gender 
+                        td=dog.familyTree 
+                        td=dog.familyTreeNumber
+    p=`Contact this member using ${user.email}`

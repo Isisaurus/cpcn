@@ -1,0 +1,66 @@
+.section_content__characteristics.section_content__content.section_content__content--3.margin-top-medium
+    img(src="/img/chodskypes/chodskypes6.jpg", alt="Chodsky Pes").section_content__img--single.margin-bottom-large
+    - const characteristicsPs = characteristics.split('\n')
+    each p in characteristicsPs
+        - if (p.includes('h3'))
+            - p = p.replace(/^h3/g, ' ')
+            h3=p
+        - else if (p.includes('TABLE'))
+            img.section_content__img--single.margin-bottom-large.margin-top-large(src="/img/chodskypes/chodskypes2.jpg", alt="Chodsky Pes Raskenmerken")
+            table.padding-lr-small.margin-top-medium.margin-bottom-large
+                tr 
+                    td Neus
+                    td De neusrug is vlak (recht) en bijna parallel met de verlengde lijn van de schedel. Het loopt taps toe in een wigvorm naar de snuit.
+                tr 
+                    td Snuit
+                    td Middelgrote, volle, zwart gepigmenteerde, open neusgaten.
+                tr 
+                    td Lippen
+                    td Stevig, droog, nauwsluitend met gesloten hoeken.
+                tr 
+                    td Kaken
+                    td Middelgrote, volle, zwart gepigmenteerde, open neusgaten.
+                tr 
+                    td Wangen
+                    td Glad, goed passend, niet verzonken onder de ogen.
+                tr 
+                    td Tanden
+                    td Gezond, sterk, zuiver wit, in een regelmatige schaarbeet. De kiezen passen precies, de snijtanden raken elkaar. Het gebit is voltooid.
+                tr 
+                    td Ogen
+                    td Middelgroot, amandelvormig, licht hellend. Ze mogen niet uitpuilen of verzonken zijn. Ze zijn glanzend, energiek, maar met een aangename uitdrukking, donkerbruin van kleur. Goed sluitende oogleden.
+                tr 
+                    td Oren
+                    td Kort, rechtop, naar voren gericht, hoog geplaatst en dicht bij elkaar. Ze zijn driehoekig, met een bredere basis, aan de uiteinden puntig of licht afgerond. De oorlellen zijn bedekt met lang dik haar, dat borsteltjes vormt, vooral bij de wortel en aan de rand van het oor. Over het algemeen moet het hoofd nobel zijn en evenredig zijn aan de lichaamsgrootte. Het mag er niet massief of te zacht uitzien. Het karakteristieke unieke uiterlijk van het hoofd wordt bepaald door de juiste plaatsing en het dragen van de oren, hun grootte, vorm en bedekking van haar.
+                tr 
+                    td Hals
+                    td Sierlijk gedragen en gevormd, lang, zeer flexibel. De hals wordt iets breder naar de schouders toe. De halslijn vormt een hoek van 45° met de horizontale lijn. De nek is bedekt met dik lang haar.
+                tr 
+                    td Borst
+                    td Ovaal in dwarsdoorsnede; de bovenrand is stomp, terwijl de onderkant puntig is. Het reikt tot onder het elleboog niveau. De ribben zijn licht gebogen maar niet tonvormig.
+                tr 
+                    td Voorborst
+                    td Breder van voren, goed gespierd.
+                tr 
+                    td Rug
+                    td Recht, stevig, niet te lang, iets verhoogd bij de schoft.
+                tr 
+                    td Schouders
+                    td Kort, soepel, goed gebonden, in lijn met de rug.
+                tr 
+                    td Buik
+                    td Stevig, opgetrokken.
+                tr 
+                    td Kruis
+                    td Begint op dezelfde hoogte als de ruggengraat en loopt iets naar de staart toe, zonder overgang.
+                tr 
+                    td Staart
+                    td In rust en in beweging wordt de staart in een lichte boog gehouden, verhoogd tot het niveau van de rug wanneer de hond opgewonden is. Het is rijk bevederd en reikt tot het spronggewricht. Kunstmatig inkorten is niet toegestaan.
+        - else if (p.includes('<li>'))
+            - p = p.replace('<li>', ' ')
+            li.margin-top-small.padding-lr-small=p
+        - else
+            p.paragraph.margin-top-small=p
+    .section_content__img--multiple.margin-top-medium 
+        img(src="/img/chodskypes/chodskypes3.jpg", alt="Chodsky Pes")
+        img(src="/img/chodskypes/pup_chodskypes.jpg", alt="Chodsky Pes Pup")

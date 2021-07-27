@@ -1,0 +1,34 @@
+extends baseEmail
+
+block content
+    h1=`Bedankt voor jouw aanmelding, ${user.firstName}.` 
+    p Wij hebben jouw aanmelding voor het lidmaatschap van de CPCN goed ontvangen.
+    p=`Om je lidmaatschap definitief te maken, vragen wij jou om de contributie van € ${user.fee} over te schrijven naar:`
+    p
+        table
+            tbody
+                tr 
+                    td Rekeningnummer
+                    td NL 08 RABO 0343 5795 37
+                tr 
+                    td BIC-code
+                    td RABONL2U
+                tr 
+                    td Ten name van
+                    td Chodsky Pes Club Nederland
+                tr 
+                    td o.v.v.
+                    td Nieuw lidmaatschap >jaar<
+    p Wanneer wij het lidmaatschapsgeld hebben ontvangen, sturen wij je een persoonlijk bericht toe ter bevestiging van je lidmaatschap.
+    p Wij zijn blij met jouw interesse in het ras en steun voor de vereniging!
+    p
+    p Met vriendelijke groet,
+        p Miranda de Jong
+        p Penningmeester
+        p Chodsky Pes Club Nederland
+    p
+    p Facebook:
+        a(href="www.nl-nl.facebook.com/groups/cpcn.nl/") www.nl-nl.facebook.com/groups/cpcn.nl/
+    p Website: www.cpcn.nl
+        a(href="https://cpcn.nl/" target="_blank") 
+            img(src="/img/cpcn_logo_double_white_bg.png", alt="CPCN logo")

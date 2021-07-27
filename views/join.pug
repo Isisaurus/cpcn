@@ -1,0 +1,156 @@
+extends base
+
+block content 
+    main.main 
+        div#showOverviewModal.hid
+            div#showOverViewContainer.margin-top-medium
+                .modal_header
+                    h2.header__secondary Your Details
+                    button#closeModalBtn.btn.btn__tertiary
+                        svg
+                            use(xlink:href="/img/sprite.svg#icon-x") 
+                #showOverview 
+                    p.paragraph Bent u geïnteresseerd in het wel en wee van dit mooie ras en draagt u het ras een warm hart toe? Meldt u dan aan als lid / gezinslid van de CPCN. Als Lid van de CPCN kunt u deelnemen aan activiteiten, gebruik maken van faciliteiten van de CPCN en ontvangt u 4 keer per jaar het clubblad ‘Onze Chodsky’. Met uw lidmaatschap helpt u de club de belangen van het ras te behartigen.
+                button#submitJoinFormBtn.btn.btn__primary indienen
+                button#cancelJoinForm.btn.margin-bottom-medium annuleren
+            div#modalOverlay.overlay
+        section.section__header.margin-top-medium.margin-bottom-medium
+            img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+            hr
+            h1.header__primary lid worden
+                br
+                | van de CPCN
+            p.paragraph.join__intro__p.margin-top-medium.margin-bottom-medium Bent u geïnteresseerd in het wel en wee van dit mooie ras en draagt u het ras een warm hart toe? Meldt u dan aan als lid / gezinslid van de CPCN. Als Lid van de CPCN kunt u deelnemen aan activiteiten, gebruik maken van faciliteiten van de CPCN en ontvangt u 4 keer per jaar het clubblad ‘Onze Chodsky’. Met uw lidmaatschap helpt u de club de belangen van het ras te behartigen.
+                | 
+                a(href="#join_info") Meer informatie vindt u onderaan deze pagina.  
+        section.section_join_form.margin-bottom-large 
+            form#joinForm.join_form
+                h2.header__secondary 1/3  persoonlijke informatie
+                span.paragraph * verplicht
+                .join_form__section.join_form__section--2col
+                    .join_form__group 
+                        label(for="memberFirstName").join_form__label Voornaam*
+                        input#memberFirstName(type="text", name="firstname" required placeholder='Your First Name...').join_form__input
+                    .join_form__group
+                        label(for="memberLastName").join_form__label Achternaam*
+                        input#memberLastName(type="text", name="lastname" required placeholder='Your Last Name...').join_form__input
+                .join_form__section.join_form__section--2col
+                    .join_form__group
+                        label(for="initials").join_form__label Initials*
+                        input#initials(type="text" name="initials" required minlength="2" maxlength="10").join_form__input
+                    .join_form__group
+                        label(for="memberDob").join_form__label Geboortedatum*
+                        input#memberDob(type="date", name="dob" required).join_form__input
+                .join_form__section.join_form__section--2col
+                    .join_form__group 
+                        label(for="memberEmail").join_form__label Email*
+                        input#memberEmail(type="email", name="memberEmail" required placeholder='example@mail.com').join_form__input                   
+                    .join_form__group 
+                        label(for="memberPhone").join_form__label Telefoonnummer*
+                        input#memberPhone(type="tel", name="memberPhone" required placeholder='+31 6 000 0000').join_form__input   
+                .join_form__section.join_form__section--2col
+                    .join_form__group   
+                        label(for="memberCountry").join_form__label Land*
+                        input#memberCountry(type="text", name="memberCountry" required value='Nederland').join_form__input 
+                    .join_form__group 
+                        label(for="memberCity").join_form__label Woonplaats* 
+                        input#memberCity(type="text" name="memberCity" placeholder="Your city of living..." required).join_form__input
+                    .join_form__group 
+                        label(for="memberPostcode").join_form__label Postcode* 
+                        input#memberPostcode(type="text" name="memberPostcode" placeholder="Your postcode..." required minlength="4" maxlength="6").join_form__input
+                    .join_form__group 
+                        label(for="memberAddress").join_form__label Adres* 
+                        input#memberAddress(type="text" name="memberAddress" placeholder="Your address..." required minlength="4" maxlength="100").join_form__input
+                hr.margin-top-small
+                h3#testBtn.header__secondary 2/3  gezinsleden
+                p.paragraph You can include family members in your club membership to get a discount. Children under the age of 12 are free to join us!
+                    br 
+                    br
+                    | * verplicht
+                div#addFamMemContainer
+                    div(data-set="0").join_form__section.join_form__section--2col.join_form__section--fam
+                        .join_form__group 
+                            label(for="familyFirstName0").join_form__label Voornaam*
+                            input#familyFirstName0(type="text", name="familyFirstName").join_form__input 
+                        .join_form__group 
+                            label(for="familyLastName0").join_form__label Achternaam*
+                            input#familyLastName0(type="text", name="familyLastName").join_form__input 
+                        .join_form__group 
+                            label(for="familyDob0").join_form__label Geboortedatum*
+                            input#familyDob0(type="date", name="familyDob").join_form__input 
+                .join_form__section--buttons 
+                    button#addFamMem.btn.btn__tertiary gezinslid toevoegen
+                        svg
+                            use(xlink:href="/img/sprite.svg#icon-plus-circle")                        
+                    button#removeFamMem.btn.btn__tertiary.hid verwijder gezinslid
+                        svg
+                            use(xlink:href="/img/sprite.svg#icon-minus-circle")       
+                hr.margin-top-small
+                h3#testBtn.header__secondary 3/3  honden
+                p.paragraph You can include your dogs in your membership in this section. 
+                    br 
+                    br
+                    | * verplicht
+                #addDogContainer 
+                    div(data-set="0").join_form__section.join_form__section--2col.join_form__section--dogs
+                        .join_form__group 
+                            label(for="nickname0").join_form__label Roepnaam* 
+                            input#nickname0(type="text", name="nickname0" required).join_form__input
+                        .join_form__gender
+                            .join_form__group--radio  
+                                input#female0(type="radio", name="gender0" value="female" checked)
+                                label(for="female0").join_form__label teef
+                            .join_form__group--radio
+                                input#male0(type="radio", name="gender0" value="male")
+                                label(for="male0").join_form__label reu
+                        .join_form__group 
+                            label(for="dogdob0").join_form__label Geboortedatum* 
+                            input#dogdob0(type="date", name="dogdob0" required).join_form__input
+                        .join_form__group
+                        .join_form__group 
+                            label(for="familytree0").join_form__label Stamboom 
+                            input#familytree0(type="text", name="familytree0").join_form__input
+                        .join_form__group 
+                            label(for="number0").join_form__label Stamboom Registratie Nummer 
+                            input#number0(type="text", name="number0").join_form__input
+                .join_form__section--buttons 
+                    button#addDog.btn.btn__tertiary hond toevoegen
+                        svg
+                            use(xlink:href="/img/sprite.svg#icon-plus-circle")                        
+                    button#removeDog.btn.btn__tertiary.hid hond verwijderen
+                        svg
+                            use(xlink:href="/img/sprite.svg#icon-minus-circle")  
+                .join_form__section.margin-top-medium 
+                    .join_form__group--checkbox
+                        input#privacyCheckbox(type="checkbox" required).join_form__checkbox-input
+                        label(for="privacyCheckbox").join_form__checkbox-label Met het aanvinken van dit vakje verklaar ik zonder tegenbericht, akkoord te gaan met het delen van foto- en videomateriaal, die tijdens evenementen of wandelingen gemaakt worden. Tevens verklaar ik kennis genomen te hebben van het CPCN privacy statement.*
+                            svg
+                                use(xlink:href="/img/sprite.svg#icon-check")
+                    .join_form__group--checkbox
+                        input#termsCheckbox(type="checkbox" required).join_form__checkbox-input
+                        label(for="termsCheckbox").join_form__checkbox-label Met het aanvinken van dit vakje verklaar ik, dat ik dit  lidmaatschapsformulier naar waarheid heb ingevuld en kennis heb genomen van het huishoudelijk reglement, het leden convenant en het fokreglement van de CPCN. Tevens ga ik akkoord met de betaling van de gemelde contributie via overboeking.*
+                            svg
+                                use(xlink:href="/img/sprite.svg#icon-check")
+                .join_form__section--submit.margin-bottom-medium
+                    button(type="submit" id="showOverviewModalBtn").btn.btn__primary volgende stap
+        section.join.margin-bottom-large 
+            div#join_info.join__intro
+                    hr.margin-top-medium.margin-bottom-large 
+                    - const paragraphs = text.split('\n');
+                    each p in paragraphs 
+                        - if (p.includes('h3'))
+                            - p = p.replace(/^h3/g, ' ')
+                            h3=p
+                        - else if (p.includes('<li>'))
+                            - p = p.replace('<li>', ' ')
+                            li.margin-top-small.padding-lr-small=p
+                        - else
+                            p.paragraph.margin-top-small=p
+                    .join__intro__payment.margin-top-medium 
+                        h4.header__tertiary.margin-bottom-medium Overschrijven van de contributie
+                        p.paragraph Rekeningnummer: NL 08 RABO 0343 5795 37
+                        p.paragraph BIC: RABONL2U
+                        p.paragraph Ten name van: Chodsky Pes Club Nederland
+                        p.paragraph o.v.v. jaar en lidmaatschapsnummer
+        hr.margin-top-medium
+        include _sponsors

@@ -1,0 +1,23 @@
+.admin_view.admin_view--5 
+    p.paragraph=`Ingelogd als ${user.email}.`
+    #profile_update_container
+        form#profile_form.admin__form.margin-top-medium(action='/submit-user-data' method="POST")
+            h2.header__secondary.margin-bottom-small Verander email adres
+            .admin__form__group 
+                label(for="user_email") Nieuw email adres 
+                input#user_email(type="email", name="email" value=`${user.email}`)
+            .admin__form__group 
+                button(type="submit")#update_profile.btn.btn__primary Verander Email
+        form#profile_password.admin__form.margin-top-medium
+            h2.header__secondary.margin-bottom-small Verander wachtwoord
+            .admin__form__group 
+                label(for="user_password_current") Huidig wachtwoord 
+                input#user_password_current(type="password" required minlength="8")
+            .admin__form__group 
+                label(for="user_password") Nieuw wachtwoord 
+                input#user_password(type="password" placeholder="********" minlength="8" required)
+            .admin__form__group 
+                label(for="user_password_confirm") Herhaal nieuw wachtwoord
+                input#user_password_confirm(type="password" placeholder="********" minlength="8" required)
+            .admin__form__group 
+                button(type="submit" form="profile_password").btn.btn__primary Verander Wachtwoord

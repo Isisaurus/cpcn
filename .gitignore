@@ -1,0 +1,9 @@
+node_modules
+dist
+.cache
+dev-data
+config.env
+fokken.html
+home.html
+index.html
+onze_club.html

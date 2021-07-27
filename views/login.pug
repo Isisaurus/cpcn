@@ -1,0 +1,15 @@
+extends base
+
+block content 
+    main.main 
+        section.login.margin-top-large.margin-bottom-large 
+            form#form_login.form_login
+                h2.header__secondary Inloggen
+                .form_login__group
+                    label.form_login__label(for="email") Email Adres 
+                    input#email.form_login__input(type="email", placeholder="you@example.com", required, autocomplete="email")
+                .form_login__group 
+                    label.form_login__label(for="password") Wachtwoord 
+                    input#password.form_login__input(type="password", placeholder="********", required, minlength="8", autocomplete="current-password")
+                .form_login__group 
+                    button(type="submit" form="form_login").btn.btn__primary Log in

@@ -1,0 +1,393 @@
+#showOverViewModal {
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .overlay {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-black, 0.8);
+  }
+
+  #showOverViewContainer {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 4rem;
+    background-color: $color-white;
+
+    padding: 5rem 7rem;
+
+    border-radius: 2px;
+    max-width: 96rem;
+    width: 90%;
+    min-width: 25rem;
+    box-shadow: 0 1rem 2rem rgba($color-white, 0.15);
+
+    overflow-y: scroll;
+    max-height: 90vh;
+
+    .modal_header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row;
+      button {
+        align-self: flex-start;
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: 28rem) {
+      padding: 1rem 3rem;
+      grid-row-gap: 1.5rem;
+    }
+
+    button {
+      margin-bottom: 1rem;
+      align-self: center;
+    }
+  }
+}
+.join {
+  grid-column: center-start / center-end;
+}
+.join__intro {
+  font-size: $font-size-default;
+  column-count: 2;
+  column-gap: 8rem;
+  &__p {
+    column-span: all;
+  }
+  hr {
+    column-span: all;
+  }
+  li {
+    margin-left: 1rem;
+    font-size: inherit;
+  }
+
+  h3 {
+    margin-top: 3em;
+    margin-left: 1em;
+    font-size: 1.6rem;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  @media only screen and (max-width: 47rem) {
+    column-count: 1;
+  }
+
+  &__payment {
+    padding: 3rem;
+    background-color: rgba($color-grey, 0.2);
+    overflow: hidden;
+
+    p {
+      margin-top: 1rem;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+    @media only screen and (max-width: 28rem) {
+      padding: 1.5rem;
+      font-size: 1rem;
+    }
+  }
+}
+////////////////// JOIN FORM STYLING
+
+.section_join_form {
+  grid-column: center-start / center-end;
+}
+.join_form {
+  display: grid;
+  grid-row-gap: 2.5rem;
+  background-color: #fff;
+  padding: 5rem 7rem;
+  border-radius: 2px;
+
+  font-size: 1.6rem;
+
+  max-width: 96rem;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+  @media only screen and (max-width: 37.5rem) {
+    padding: 1.5rem 3rem;
+    width: 100%;
+    font-size: 1.4rem;
+    grid-row-gap: 2rem;
+  }
+
+  @media only screen and (max-width: 28rem) {
+    padding: 1.8rem;
+    font-size: 1.2rem;
+    grid-row-gap: 1.5rem;
+  }
+  hr {
+    grid-column: 1 / -1;
+  }
+  &__section {
+    display: grid;
+    &--2col {
+      grid-column-gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 2rem;
+      .join_form__group--checkbox {
+        align-self: end;
+        justify-content: flex-end;
+      }
+      input {
+        align-self: flex-end;
+      }
+      label {
+        align-self: flex-start;
+      }
+      @media only screen and (max-width: 37.5rem) {
+        grid-column-gap: 0rem;
+        grid-row-gap: 0.5rem;
+        grid-template-columns: 1fr;
+      }
+    }
+    &--1col {
+      grid-column-gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      & > * {
+        grid-column: 1 / 2;
+      }
+      @media only screen and (max-width: 37.5rem) {
+        grid-column-gap: 0rem;
+        grid-template-columns: 1fr;
+      }
+    }
+    &--buttons {
+      display: flex;
+      justify-content: space-between;
+      @media only screen and (max-width: 37.5rem) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+    &--submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__group {
+    display: grid;
+    &--checkbox {
+      grid-column: 1 / 3;
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+
+      @media only screen and (max-width: 37.5rem) {
+        grid-column: 1 / 2;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__label {
+    @include input_label;
+  }
+  &__input {
+    @include input_field;
+    background-color: $color-white;
+
+    &:focus {
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    }
+  }
+}
+// checkbox
+.join_form__group--checkbox {
+  input {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  label {
+    color: $color-black;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    transition: all 0.2s ease;
+    svg {
+      margin-left: 1rem;
+      display: block;
+      padding: 0.2rem;
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      fill: $color-primary;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+    &::before {
+      position: absolute;
+      right: 0;
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 2px solid $color-black;
+      transition: all 0.2s ease;
+      border-radius: $input-field-borderrad;
+    }
+  }
+
+  input:checked + label {
+    color: $color-primary-light;
+    &::before {
+      transition: all 0.2s ease;
+      border: 2px solid $color-primary-light;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+    }
+    svg {
+      opacity: 1;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+.join_form__gender {
+  align-self: end;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.join_form__group--radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 37.5rem) {
+    margin: 0;
+    margin-top: 2rem;
+  }
+
+  label {
+    margin: 0;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      outline: 2px solid $color-black;
+      transition: all 0.2s ease;
+      margin-right: 1.5rem;
+
+      border-radius: $input-field-borderrad;
+
+      outline-offset: 0.5rem;
+    }
+  }
+  input[type='radio'] {
+    visibility: hidden;
+
+    &:checked + label {
+      color: $color-primary-light;
+      transition: all 0.2s ease;
+      &::before {
+        background-color: $color-primary;
+        transition: all 0.2s ease;
+        outline: 2px solid $color-primary-light;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      }
+    }
+  }
+}
+
+#showOverview {
+  table {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    @media only screen and (max-width: 37.5rem) {
+      font-size: 1.4rem;
+    }
+    @media only screen and (max-width: 28rem) {
+      font-size: 1.1rem;
+    }
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid $color-grey;
+      :not(:first-child) {
+        text-align: right;
+      }
+    }
+    td {
+      padding: 1rem 0;
+      @media only screen and (max-width: 37.5rem) {
+        padding: 0.5rem;
+      }
+      @media only screen and (max-width: 37.5rem) {
+        padding: 0.3rem;
+      }
+    }
+    .table__header {
+      border-bottom: 1px solid transparent;
+      td {
+        padding: 1rem 0rem 0.5rem;
+      }
+    }
+  }
+  .table__personal_info {
+    tr {
+      border: none;
+    }
+  }
+  .table__dog_info {
+    tr {
+      border: none;
+    }
+    &__details_row {
+      td {
+        border-bottom: 1px solid $color-grey;
+      }
+    }
+    &__nickname {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+  .table__membership_fee {
+    margin-top: 4rem;
+    tr {
+      border: none;
+      background-color: rgba($color-grey, 0.2);
+
+      td {
+        padding: 1rem 2.5rem;
+        font-weight: 600;
+        color: $color-primary;
+      }
+    }
+    @media only screen and (max-width: 28rem) {
+      margin-top: 2rem;
+    }
+  }
+}
+
+#cancelJoinForm {
+  margin: 0;
+}

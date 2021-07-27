@@ -1,0 +1,8 @@
+.section_content__history.section_content__content.section_content__content--active.section_content__content--1.margin-top-medium 
+    img(src="/img/chodskypes/chodskypes0.jpg", alt="Chodsky Pes").section_content__img--single.margin-bottom-large
+    - const historyPs = history.split('\n');
+    each p, i in historyPs 
+        if(i === 0)
+            p.paragraph=p
+        p.paragraph.margin-top-medium=p
+    img(src="/img/chodskypes/chodskypes1.jpg", alt="Chodsky Pes").section_content__img--single.margin-top-medium

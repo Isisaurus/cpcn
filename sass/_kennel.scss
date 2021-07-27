@@ -1,0 +1,214 @@
+.section__pupnews {
+  grid-column: center-start / center-end;
+
+  @media only screen and (max-width: 37.5rem) {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+  }
+}
+
+///////////////////kennels
+.section__kennels {
+  grid-column: center-start / center-end;
+  &__container {
+    display: grid;
+    grid-gap: 2rem;
+    @media only screen and (max-width: 37.5rem) {
+      justify-items: center;
+      grid-gap: 1rem;
+    }
+  }
+}
+// Kennel Cards
+.kennel {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 25rem));
+
+  @media only screen and (max-width: 28rem) {
+    overflow-wrap: anywhere;
+  }
+
+  h3 {
+    color: $color-primary;
+  }
+
+  img {
+    height: auto;
+    max-width: 25rem;
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+    @media only screen and (max-width: 28rem) {
+      max-width: 20rem;
+    }
+  }
+  &__details {
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 1.5rem;
+    border-bottom: rgba($color-grey, 0.4) 0.25rem solid;
+
+    &__list {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    &__el {
+      font-size: $font-size-default;
+      margin-left: 0;
+      margin-top: 1rem;
+      list-style: none;
+
+      display: flex;
+      align-items: center;
+      a {
+        display: flex;
+        align-items: center;
+        color: $color-black;
+        &,
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: inherit;
+          transition: transform 0.3s ease-out;
+        }
+        &:hover,
+        &:active {
+          transition: transform 0.3s ease-in;
+          transform: translateX(3px);
+          text-decoration: underline;
+        }
+      }
+    }
+    h3 {
+      a {
+        display: flex;
+        align-items: center;
+        &,
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: inherit;
+          transition: transform 0.3s ease-out;
+        }
+        &:hover,
+        &:active {
+          transition: transform 0.3s ease-in;
+          transform: translateX(3px);
+
+          .email__icon {
+            fill: $color-primary-light;
+          }
+        }
+      }
+      .email__icon {
+        width: 1.6rem;
+        height: 1.6rem;
+        fill: $color-primary;
+        margin-left: 0.5rem;
+      }
+    }
+    svg {
+      fill: $color-black;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-right: 1rem;
+    }
+  }
+}
+.section__kennels__abroad {
+  grid-column: center-start / center-end;
+}
+
+.section__stud__nl {
+  grid-column: center-start / center-end;
+}
+.section__stud {
+  grid-column: center-start / center-end;
+}
+.dogs {
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-default;
+}
+.dog {
+  h3 {
+    margin: 2rem 0;
+    @media only screen and (max-width: 37.5rem) {
+      text-align: center;
+    }
+  }
+  &__details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    grid-gap: 2rem;
+
+    .dog__contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div {
+        padding-top: 3rem;
+        a {
+          display: flex;
+          align-items: center;
+          &,
+          &:link,
+          &:visited {
+            text-decoration: none;
+            color: $color-primary;
+            text-transform: uppercase;
+            transition: transform 0.3s ease-out;
+            letter-spacing: 0.1rem;
+          }
+          &:hover,
+          &:active {
+            transition: transform 0.3s ease-in;
+            transform: translateY(-3px);
+
+            svg {
+              fill: $color-primary-light;
+            }
+          }
+        }
+      }
+
+      &__icon {
+        margin-left: 0.5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        fill: $color-primary;
+      }
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0.5rem;
+      td {
+        padding: 0.5rem;
+        border-bottom: rgba($color-grey, 0.4) 0.25rem solid;
+      }
+    }
+
+    img {
+      max-width: 25rem;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+      @media only screen and (max-width: 37.5rem) {
+        max-width: 20rem;
+      }
+    }
+
+    @media only screen and (max-width: 37.5rem) {
+      grid-template-columns: 1fr;
+      align-content: center;
+      justify-items: center;
+      table {
+        width: 100%;
+        font-size: 1.4rem;
+      }
+      .dog__contact {
+        order: -1;
+      }
+    }
+  }
+}

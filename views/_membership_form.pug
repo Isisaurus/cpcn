@@ -1,0 +1,41 @@
+.admin_view.admin_view--4 
+    h2.header__secondary.margin-bottom-medium Verander lidmaatschap contributie (€)
+    form(data-set='60b8de1d59e3463914a9c014' id='membershipform').admin__form.margin-bottom-medium
+        .membershipform__container
+            h3.header__tertiary Jaarlijks contributie (1 Jan. - 31 Dec.)
+            .admin__form__group 
+                label(for="fee_member") Lidmaatschap contributie 
+                input#fee_member(type="number", name="fee_member" value=`${fees[0].fullYearFee.membership}` step=".01")
+            .admin__form__group 
+                label(for="fee_family") Gezinsleden
+                input#fee_family(type="number", name="fee_family" value=`${fees[0].fullYearFee.family}` step=".01")
+            .admin__form__group 
+                label(for="fee_under12") Kinderen (onder 12)
+                input#fee_under12(type="number", name="fee_under12" value=`${fees[0].fullYearFee.under12}` step=".01")
+            .admin__form__group 
+                label(for="fee_dog") Honden (meer dan 3)
+                input#fee_dog(type="number", name="fee_dog" value=`${fees[0].fullYearFee.dog}` step=".01")
+            .admin__form__group 
+                label(for="fee_reg") Administratie kosten (1x)
+                input#fee_reg(type="number", name="fee_reg" value=`${fees[0].fullYearFee.registration}` step=".01")
+        .membershipform__container
+            h3.header__tertiary Halfjaarlijks (1 Juli - 31 Dec.)
+            .admin__form__group 
+                label(for="halffee_member") Lidmaatschap contributie
+                input#halffee_member(type="number", name="halffee_member" value=`${fees[0].halfYearFee.membership}` step=".01")
+            .admin__form__group 
+                label(for="halffee_family") Gezinsleden
+                input#halffee_family(type="number", name="halffee_family" value=`${fees[0].halfYearFee.family}` step=".01")
+            .admin__form__group 
+                label(for="halffee_under12") Kinderen (onder 12)
+                input#halffee_under12(type="number", name="halffee_under12" value=`${fees[0].halfYearFee.under12}` step=".01")
+            .admin__form__group 
+                label(for="halffee_dog") Honden (meer dan 3)
+                input#halffee_dog(type="number", name="halffee_dog" value=`${fees[0].halfYearFee.dog}` step=".01")
+            .admin__form__group 
+                label(for="halffee_reg") Administratie kosten (1x)
+                input#halffee_reg(type="number", name="halffee_reg" value=`${fees[0].halfYearFee.registration}` step=".01")
+        div
+        div 
+            .admin__form__group 
+                button(type="submit" id="updatefee").btn.btn__primary Update

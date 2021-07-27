@@ -1,0 +1,111 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    font-style: normal;
+
+    font-family: $font-primary;
+    letter-spacing: $header-letter-spacing;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+
+    transition: all 0.4s;
+  }
+  &__primary {
+    &,
+    &:link,
+    &:visited {
+      color: $color-white;
+      background-color: $color-primary;
+      border-radius: 100rem;
+      letter-spacing: $header-letter-spacing;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+
+      transition: all 0.3s;
+
+      @media only screen and (max-width: 37.5rem) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+      transition: all 0.3s;
+      background-color: $color-primary-light;
+    }
+  }
+  &__secondary {
+    &,
+    &:link,
+    &:visited {
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding: 0;
+      color: $color-primary;
+
+      transition: all 0.3s;
+
+      @media only screen and (max-width: 37.5rem) {
+        font-size: 1.2rem;
+      }
+    }
+    &:hover,
+    &:active {
+      transition: all 0.3s;
+      color: $color-primary-light;
+
+      transform: translateX(3px);
+    }
+  }
+  &__tertiary {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    & {
+      font-size: 1.6rem;
+      font-weight: 600;
+      padding: 0;
+      color: $color-primary;
+
+      transition: all 0.3s;
+      @media only screen and (max-width: 37.5rem) {
+        font-size: 1.4rem;
+      }
+      @media only screen and (max-width: 28rem) {
+        font-size: 1.2rem;
+      }
+    }
+    &:hover,
+    &:focus {
+      transition: all 0.3s;
+      color: $color-primary-light;
+
+      transform: translateX(3px);
+      svg {
+        fill: $color-primary-light;
+        transform: scale(1.5);
+        @media only screen and (max-width: 37.5rem) {
+          transform: scale(1.2);
+        }
+      }
+    }
+    svg {
+      margin-right: 1rem;
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      fill: $color-primary;
+
+      transition: all 0.3s;
+    }
+  }
+}

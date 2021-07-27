@@ -1,0 +1,12 @@
+.section_content__health.section_content__content.section_content__content--4.margin-top-medium.margin-bottom-large
+    img(src="/img/chodskypes/chodskypes7.jpg", alt="Chodsky Pes").section_content__img--single.margin-bottom-large
+    - const healthPs = health.split('\n')
+    each p in healthPs 
+        -if (p.includes('h3'))
+            - p = p.replace(/^h3/g, ' ')
+            h3=p
+        - else 
+            p.paragraph.margin-top-small=p
+    .section_content__img--multiple.margin-top-medium 
+        img(src="/img/chodskypes/chodskypes8.jpg", alt="Chodsky Pes Pup")
+        img(src="/img/chodskypes/chodskypes9.jpg", alt="Chodsky Pes")

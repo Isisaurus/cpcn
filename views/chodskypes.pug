@@ -1,0 +1,20 @@
+extends base
+
+block content 
+    main.main
+        section.section__header.margin-top-medium.margin-bottom-medium
+            img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+            hr
+            h1.header__primary de chodsky pes
+        section.section_content
+            .section_content__tabs.margin-bottom-medium
+                button(data-tab="1").section_content__button.section_content__button--active.section_content__button--1 Geschiedenis
+                button(data-tab="2").section_content__button.section_content__button--2 Karakter
+                button(data-tab="3").section_content__button.section_content__button--3 Raskenmerken
+                button(data-tab="4").section_content__button.section_content__button--4 Gezondheid
+            div
+                include _history
+                include _character
+                include _characteristics
+                include _health
+        include _sponsors        

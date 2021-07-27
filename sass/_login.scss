@@ -1,0 +1,79 @@
+.login {
+  grid-column: center-start / center-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 60vh;
+  height: auto;
+  max-height: 100%;
+
+  margin: 2rem 0;
+}
+
+.form_login {
+  background-color: #fff;
+
+  margin: 2rem 0;
+  padding: 4rem 6rem;
+  max-width: 55rem;
+  width: 60%;
+
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+  @media only screen and (max-width: 37.5rem) {
+    padding: 2rem 3rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__group {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    button {
+      margin-top: 2em;
+      align-self: flex-end;
+      @media only screen and (max-width: 28rem) {
+        align-self: center;
+      }
+      @media only screen and (max-width: 37.5rem) {
+        align-self: center;
+      }
+    }
+  }
+  &__label {
+    @include input_label;
+  }
+  &__input {
+    display: block;
+    font-size: 1.2rem;
+    font-family: $font-primary;
+    padding: 1.5em 2em;
+    border: none;
+    background-color: $color-white;
+    color: $color-black;
+
+    border-bottom: 3px solid transparent;
+    border-radius: $input-field-borderrad;
+    transition: all 0.3s;
+    &::placeholder {
+      color: rgba($color-black, 0.8);
+      font-size: inherit;
+      font-style: italic;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-white, 0.15);
+      border-bottom: 3px solid $color-primary-light;
+    }
+    &:focus:invalid {
+      border-bottom: 3px solid $color-invalid-1;
+    }
+    &:valid {
+      border-bottom: 3px solid $color-primary-light;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.club-news {
+  grid-column: center-start / center-end;
+  font-size: $font-size-default;
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__cta {
+    color: $color-primary;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    cursor: default;
+    button {
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.board {
+  grid-column: center-start / center-end;
+  font-size: $font-size-default;
+  &__members {
+    @include auto-grid;
+  }
+  &__member {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 3rem;
+      width: 10rem;
+      border-radius: 50%;
+
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+    }
+    a {
+      display: flex;
+      align-items: center;
+      &,
+      &:link,
+      &:visited {
+        color: $color-primary;
+        text-decoration: none;
+        transition: all 0.3s ease-out;
+      }
+      &:hover,
+      &:active {
+        transition: all 0.3s ease-in;
+        transform: translateY(-3px);
+
+        svg {
+          fill: $color-primary-light;
+        }
+      }
+    }
+    span {
+      margin: 0;
+
+      color: $color-primary;
+    }
+    svg {
+      fill: $color-primary;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-left: 0.5rem;
+    }
+  }
+  @media only screen and (max-width: 28rem) {
+    &__members {
+      grid-template-columns: minmax(min-content, 1fr);
+      align-items: center;
+      justify-content: center;
+      grid-gap: 3rem;
+    }
+    &__member {
+      img {
+        margin-right: 1.5rem;
+        width: 8rem;
+      }
+    }
+  }
+}
+
+.board__description {
+  grid-column: center-start / center-end;
+  font-size: $font-size-default;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin-top: 2rem;
+  }
+  img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,72 @@
+header.header 
+    nav.nav
+        ul.nav__list
+            li.nav__el
+                a(href="/").nav__link home 
+            li.nav__el
+                a(href="/chodskypes").nav__link chodksy pes
+            li.nav__el
+                a(href="/cpcn").nav__link CPCN
+            li.nav__el
+                a(href="/gallery").nav__link galerij
+            li.nav__el
+                a(href="/fokken").nav__link fokken
+            li.nav__el
+                a(href="/kennels").nav__link kennel info
+            li.nav__el
+                a(href="/pupinfo").nav__link pupinfo
+            .nav__cta 
+                if user
+                    - if(user.role ==='admin')
+                        a(href="/administration").nav__link administratie
+                            svg.loggedin_icon 
+                                use(xlink:href="/img/sprite.svg#icon-settings")
+                    a(href="/" id="logout").nav__link log uit
+                        svg.loggedin_icon 
+                            use(xlink:href="/img/sprite.svg#icon-user-check")
+                else 
+                    a(href="/login").nav__link.margin-right-small log in
+                        svg.login_icon 
+                            use(xlink:href="/img/sprite.svg#icon-user")
+                    a(href="/join").nav__btn word lid
+        #burger 
+            span.nav__icon &nbsp;
+    nav.side_nav.hidden 
+        ul.side_nav__list
+            li.side_nav__el
+                a(href="/").side_nav__link home 
+            li.side_nav__el
+                a(href="/chodskypes").side_nav__link chodksy pes
+            li.side_nav__el
+                a(href="/cpcn").side_nav__link CPCN
+            li.side_nav__el
+                a(href="/gallery").side_nav__link galerij
+            li.side_nav__el
+                a(href="/fokken").side_nav__link fokken
+            li.side_nav__el
+                a(href="/kennels").side_nav__link kennel info
+            li.side_nav__el
+                a(href="/pupinfo").side_nav__link pupinfo
+            div.sm_container.margin-top-small.margin-bottom-small
+                a(href="https://www.facebook.com/groups/cpcn.nl/" target="_blank")
+                    svg.sm_icon 
+                        use(xlink:href="/img/sprite.svg#icon-facebook-square")
+                a(href="http://instagram.com/chodskypesclub/" target="_blank")
+                    svg.sm_icon 
+                        use(xlink:href="/img/sprite.svg#icon-instagram")
+            hr.margin-top-medium.margin-bottom-medium
+            .side_nav__cta.margin-top-small 
+                if user
+                    a(href="/" id="logout2").cta_nav__link log uit
+                        svg.loggedin_icon 
+                            use(xlink:href="/img/sprite.svg#icon-user-check")
+                    - if(user.role ==='admin')
+                        a(href="/administration").cta_nav__link administratie
+                            svg.loggedin_icon 
+                                use(xlink:href="/img/sprite.svg#icon-settings")
+                else 
+                    a(href="/login").cta_nav__link log in
+                        svg.login_icon 
+                            use(xlink:href="/img/sprite.svg#icon-user")
+                    a(href="/join").side_nav__btn word lid
+                

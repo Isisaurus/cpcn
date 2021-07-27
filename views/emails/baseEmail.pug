@@ -1,0 +1,25 @@
+head
+  meta(name='viewport' content='width=device-width')
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  title Simple Transactional Email
+  include _style
+body
+    table.body(role='presentation' border='0' cellpadding='0' cellspacing='0')
+        tr
+            td.container
+                .content
+                    table.main(role='presentation')
+                        tr
+                            td.wrapper
+                                table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+                                    tr
+                                        td
+                                            // Content
+                                            block content
+                .footer
+                    table(role='presentation' border='0' cellpadding='0' cellspacing='0')
+                        tr
+                        td 
+                            p This email was sent to you by www.cpcn.nl.
+                        td.content-block.powered-by
+                            p Powered by HTMLEmail.

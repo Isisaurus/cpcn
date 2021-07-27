@@ -1,0 +1,131 @@
+.section_content {
+  grid-column: center-start / center-end;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  &__tabs {
+    align-self: center;
+    display: flex;
+    @media only screen and (max-width: 28rem) {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      grid-row-gap: 1rem;
+      min-height: 6.5rem;
+    }
+  }
+  &__button {
+    & {
+      font-family: $font-primary;
+      letter-spacing: 1px;
+      position: relative;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $color-black;
+      padding: 1rem 2.5rem;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+      transition: all 0.1s ease;
+
+      &:hover,
+      &:active {
+        transition: all 0.3s ease;
+        transform: translateY(-5px);
+        color: $color-primary-light;
+        border-bottom: 1px solid $color-primary-light;
+      }
+      &--active {
+        border-bottom: 1px solid $color-black;
+        transform: translateY(-3px);
+      }
+    }
+    @media only screen and (max-width: 47rem) {
+      font-size: 1.5rem;
+      padding: 0.5rem 1.5rem;
+    }
+    @media only screen and (max-width: 37.5rem) {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+    }
+  }
+  &__content {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+  h3 {
+    margin-top: 3rem;
+    margin-left: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  &__img {
+    &--single {
+      display: block;
+      column-span: all;
+      width: 100%;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+    }
+    &--multiple {
+      column-span: all;
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      img {
+        width: 100%;
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.05);
+      }
+    }
+  }
+  &__history {
+    column-count: 2;
+    column-gap: 8rem;
+
+    @media only screen and (max-width: 47rem) {
+      column-count: 1;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0.5rem;
+    tr {
+      text-align: left;
+    }
+    td {
+      &:first-child {
+        font-weight: 600;
+      }
+      padding: 2rem;
+      border-bottom: rgba($color-grey, 0.4) 0.25rem solid;
+    }
+    @media only screen and (max-width: 47rem) {
+      td {
+        font-size: 1.4rem;
+        padding: 1rem;
+      }
+    }
+    @media only screen and (max-width: 28rem) {
+      border-spacing: 0rem;
+      td {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+    }
+  }
+  li {
+    margin-left: 1rem;
+  }
+
+  @media only screen and (max-width: 47rem) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 28) {
+    font-size: 1.4rem;
+  }
+}

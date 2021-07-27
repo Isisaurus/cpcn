@@ -1,0 +1,96 @@
+.section__logo {
+  grid-column: full-start / full-end;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3em 0 0;
+
+  // background-color: rgba($color-grey, 0.2);
+
+  img {
+    height: 8vw;
+    min-height: 9rem;
+    max-height: 10rem;
+  }
+}
+
+.section_hero {
+  grid-column: center-start / center-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  &__intro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    padding: 2rem;
+  }
+  .btn {
+    animation: loadFloatUp 1.5s ease-in;
+    flex: 1;
+  }
+
+  &__image {
+    width: 50vw;
+    min-width: 28rem;
+    max-width: 50rem;
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+/////////////////// Chodsky Pes
+.section_chodskypes {
+  grid-column: center-start / center-end;
+  display: flex;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .btn {
+      align-self: flex-end;
+    }
+  }
+  &__image {
+    min-width: 15rem;
+    max-width: 28rem;
+    width: 28rem;
+    svg {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 47rem) {
+    &__image {
+      width: 23rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    p {
+      text-align: left;
+    }
+
+    &__image {
+      margin: 0;
+      padding: 0;
+      margin-top: 1rem;
+      min-width: 15rem;
+      width: 100%;
+    }
+  }
+}

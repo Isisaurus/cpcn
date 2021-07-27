@@ -1,0 +1,46 @@
+div.admin_view.admin_view--active.admin_view--1
+    h2.header__secondary.margin-bottom-medium Plaats nieuw evenement
+    form#eventsForm.admin__form
+        .admin__form__group 
+            label(for="event_title") Evenement titel
+            input(type="text", name="event_title" required placeholder="Add event title..")#event_title
+        .admin__form__group 
+            label(for="startsAt") Start datum & tijd
+            div 
+                input(type="date", name="startsAt" required)#startsAtDate
+                input(type="time", name="startsAt" required)#startsAtTime
+        .admin__form__group 
+            label(for="endsAt") Eind datum & tijd
+            div 
+                input(type="date", name="endsAt" required)#endsAtDate
+                input(type="time", name="endsAt" required)#endsAtTime
+        .admin__form__group 
+            label(for="event_location") Locatie
+            input(type="text", name="event_location" required placeholder="Evenement adres...")#event_location
+        .admin__form__group 
+            label(for="event_locationUrl") Locatie URL
+            textarea(name="event_locationUrl", cols="10", rows="2" placeholder="Google Maps locatie link...")#event_locationUrl
+        .admin__form__group 
+            label(for="event_description") Omschrijving
+            textarea(name="event_description", cols="10", rows="4" placeholder="Evenement omschrijving..." required)#event_description
+        .admin__form__group 
+            button(type="submit")#postEvent.btn.btn__primary Plaats Evenement
+    hr.margin-top-large.margin-bottom-large 
+    h2.header__secondary.margin-bottom-medium Verwijder evenement
+    form#eventsFormDelete.admin__form
+        - if (events)
+            each event, i in events
+                - if (i === 0)
+                    .delete__container
+                        input.deleteEvents__input(type="radio", name="news" value=`${event._id}` id=`${event._id}` checked)
+                        label(for=`${event._id}`)
+                            span.header__tertiary--light=event.title
+                            span=event.startsAt.toLocaleDateString('nl-NL', {dateStyle: "short"}) 
+                - else
+                    .delete__container
+                        input.deleteEvents__input(type="radio", name="news" value=`${event._id}` id=`${event._id}`)
+                        label(for=`${event._id}`)
+                            span.header__tertiary--light=event.title
+                            span=event.startsAt.toLocaleDateString('nl-NL', {dateStyle: "short"}) 
+        .admin__form__group 
+            button(type="submit")#deleteEvents.btn.btn__primary Verwijder geselecteerde 

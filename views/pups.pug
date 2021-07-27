@@ -1,0 +1,32 @@
+extends base
+
+block content 
+    main.main 
+        section.section__header.margin-top-medium.margin-bottom-medium
+            img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+            hr
+            h1.header__primary pupinfo
+        section.section__pupnews.margin-top-medium
+            .pup 
+                each pup in pups
+                    .pup__container 
+                        h4.header__tertiary=pup.header
+                        .pup__container__div 
+                            svg
+                                use(xlink:href="/img/sprite.svg#icon-calendar")
+                            span.pup__date=pup.date.toLocaleDateString('nl-NL', {dateStyle: "short"})
+                        p.description=pup.description
+            hr
+        section.section__pupinfo.margin-top-small.margin-bottom-large
+            .section__pupinfo__container 
+                p.paragraph Bij ‘verwachte nesten’ en ‘geboorteberichten vindt u informatie over een (komend) nestje pups. U kunt rechtstreeks contact opnemen met de daarbij vermelde fokkers om naar de beschikbaarheid van een pup te vragen.
+                p.paragraph Indien er geen nesten in Nederland zijn (en deze dan ook niet op onze website staan), kunt u zich ook op het buitenland te oriënteren.
+                p.paragraph Denk er hierbij wel aan dat u zich aan de wettelijke verplichtingen houdt en dat de pup pas naar Nederland mag afreizen als deze 15 weken is en is ingeënt tegen rabiës. Vergeet ook vooral niet de chip-transponder op uw naam te zetten!
+                p.paragraph In Tsjechië, Zwitserland, Polen, Noorwegen of Zweden zijn er mogelijk nesten beschikbaar.
+                p.paragraph Wij kunnen en willen u graag helpen en u advies geven waar zich een nest mogelijk bij een fokker aan zal doen. Wel willen wij u er met klem op wijzen, dat u zelf de verantwoordelijkheid heeft om de fokker en de pup goed te checken. Vraag bij anderen na wat de ervaringen zijn van de fokker. Vraag de fokker hoe hij de socialisatie, medische testen en opvoeding van de pup doet. Ons advies is om te kijken of de fokker de pups in huiselijke kring opvoedt. Indien u uw ervaringen wilt delen: deze feedback vernemen wij graag per mail.
+                p.paragraph Het bestuur van de CPCN kan dus generlei aansprakelijk gehouden worden voor de verstrekte informatie als een pup niet aan de verwachtingen voldoet of ziek wordt of dat een fokker niet de afspraken nakomt of voldoet aan de regels van de FCI en van het fokbeleid van de CPCN.
+                p.paragraph Het beste kunt u voor het zoeken naar een pup in Tsjechië de volgende link gebruiken In Google Chrome: 
+                    a(href="http://kpchp.org/chov_sten.php" target="_blank")  http://kpchp.org/chov_sten.php
+                p.paragraph Dit is de website van de KPCHP (de Tsjechische rasvereniging van de Boheemse Herder). U kunt Google Chrome zo instellen dat de site automatisch vertaalt wordt. Klik vervolgens op de kennelnaam om naar de respectievelijke websites te gaan. U kunt vervolgens contact opnemen met één van deze fokkers als u vragen heeft over pups. Het beste kunt u dit doen door een e-mail te sturen in het Engels, Duits of Tsjechisch. De meeste Tsjechische fokkers zijn redelijk thuis in het Engels.
+        hr.margin-top-medium
+        include _sponsors

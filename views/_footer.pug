@@ -1,0 +1,25 @@
+footer.footer.margin-top-large
+    div.footer__info
+        img(src="/img/cpcn_logo_double_white_bg.png", alt="cpcn logo").footer__logo
+        nav.footer__nav
+          a(href="https://www.facebook.com/groups/cpcn.nl/" target="_blank").footer__icon
+            svg
+                use(xlink:href="/img/sprite.svg#icon-facebook-square")
+          a(href="http://instagram.com/chodskypesclub/" target="_blank").footer__icon
+            svg
+                use(xlink:href="/img/sprite.svg#icon-instagram")
+          a(href="#").footer__link Sponsorship
+          a(href="https://irp-cdn.multiscreensite.com/07069212/files/uploaded/Statuten%20CPCN%2020-07-2019.pdf" target="_blank").footer__link Statuten
+          a(href="https://irp-cdn.multiscreensite.com/07069212/files/uploaded/Ledenconvenant.pdf" target="_blank").footer__link Leden Convenant
+          a(href="https://irp-cdn.multiscreensite.com/07069212/files/uploaded/Chodsky%20Pes%20Club%20Nederland%20privacy%20statement%2019-07-2019.pdf" target="_blank").footer__link Huishoudlijk Reglement
+        p.paragraph.margin-top-medium.margin-bottom-medium Desgined and built by
+            | 
+            a(href="#" target="_blank").footer__link Diana Vitanyi.
+    div.footer__contact
+        h3.header__tertiary--light Vragen? Stuur ons een bericht!
+        form(id="contact_form").footer__form
+            label(for="email") E-mailadres:
+            input(type="email" name="email" id="contact_email" placeholder="voorbeeld@email.com" required)
+            label(for="message") Bericht: 
+            textarea(name="message", cols="30", rows="5" placeholder="Uw bericht..." maxlength="500" id="contact_message" required)
+            button(type="submit" value="submit").btn.footer__cta.margin-bottom-medium verzenden

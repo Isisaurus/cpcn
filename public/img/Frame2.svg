@@ -1,0 +1,37 @@
+<svg id="d67e635b-0332-411d-a12c-15ed2c9f2267" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 267.31 269">
+  <defs>
+    <linearGradient id="7747d2f8-9097-4844-b066-5044e41d8f93" x1="281.17" y1="125.67" x2="201.16" y2="57.3" gradientTransform="matrix(1, 0, 0, -1, 0, 336)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffc837"/>
+      <stop offset="1" stop-color="#ff8008"/>
+    </linearGradient>
+    <linearGradient id="7f881e10-dae1-466d-8aa7-7d566695e3a8" x1="185.91" y1="277.5" x2="130.73" y2="52.38" gradientTransform="matrix(1, 0, 0, -1, 0, 336)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#985cff"/>
+      <stop offset="1" stop-color="#370091"/>
+    </linearGradient>
+    <mask id="be0851a5-6bc5-410a-ad21-93595978c65d" x="0.98" y="-3.47" width="223.31" height="272.47" maskUnits="userSpaceOnUse">
+      <g transform="translate(-43.02 -28)">
+        <g id="14a00423-4647-43da-bd13-28b5ccba774b" data-name="mask0">
+          <path id="6880c07a-3a46-4283-9200-b7cadd25e08a" data-name="ellipse mask" d="M256.13,214.7c-38.81,89.17-60.57,86.05-88.38,77.57s-114.4-68-123.6-96.3C158,107.51,74.84,45.21,150.5,26.51S294.94,125.52,256.13,214.7Z" fill="#fff"/>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <title>Frame2</title>
+  <g id="c3a56615-4ad7-4242-84e4-05c02bd123da" data-name="Frame2">
+    <g id="b41241e9-78c5-405a-a6bb-c125f916d154" data-name="blob2 small">
+      <g id="d602ce81-b300-4821-83b1-960eb940a623" data-name="ellipse2">
+        <path d="M183.85,234.82c34.72-38.3,47.54-37.19,63.37-33.86s61,27.76,63,39.71-32.95,34.12-94,50.68S149.13,273.11,183.85,234.82Z" transform="translate(-43.02 -28)" fill="url(#7747d2f8-9097-4844-b066-5044e41d8f93)"/>
+      </g>
+    </g>
+    <g id="8c6c7caf-3f12-4422-be1e-ce3a35de224f" data-name="blob2 big">
+      <g id="b1f79c26-84b6-4763-988c-5fe531cebd17" data-name="ellipse1">
+        <path d="M256.13,214.7c-38.81,89.17-60.57,86.05-88.38,77.57s-114.4-68-123.6-96.3S82.06,116.61,174.93,79.83,294.94,125.53,256.13,214.7Z" transform="translate(-43.02 -28)" fill="url(#7f881e10-dae1-466d-8aa7-7d566695e3a8)"/>
+      </g>
+    </g>
+    <g id="3162de93-cfb7-4604-979d-4c7f3773d09c" data-name="dog2">
+      <g mask="url(#be0851a5-6bc5-410a-ad21-93595978c65d)">
+        <rect id="27d99a27-22f0-4cf5-b9dc-c2be6885858d" data-name="dog2svg 1" x="0.98" width="197" height="269" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+extends base
+
+block content
+    main.main 
+        section.section__header.margin-top-medium.margin-bottom-medium
+            img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+            hr
+            h1.header__primary over de CPCN
+            p.paragraph.margin-top-medium The CPCN is a club for chodksy pes owners and enthusiasts. We provide information about the breed, about the current breeding standard, about kennels and stud dogs available in the Netherlands. Are you interested in becoming a member? 
+                | 
+                a(href="/join" target="_blank") Wordt lid!
+        section.club-news 
+            .title__container 
+                h2.title__header evenementen 
+            .club-news__container.padding-lr-medium.margin-top-medium 
+                each event in events 
+                    .event__container
+                        h4.header__tertiary=event.title 
+                        .event__container__div 
+                            svg
+                                use(xlink:href="/img/sprite.svg#icon-clock")
+                            span.event__date=`${event.startsAt.toLocaleDateString('nl-NL', {dateStyle: "short"})}`
+                            span.event__date=`${event.startsAt.toLocaleString('nl-NL', {timeStyle: "short"})} - ${event.endsAt.toLocaleString('nl-NL', {timeStyle: "short"})}`
+                        .event__container__div 
+                            svg
+                                use(xlink:href="/img/sprite.svg#icon-map-pin")
+                            a(href=`${event.locationUrl}`).event__link
+                                span.event__location=event.location
+                        p.description=event.description 
+            //- .club-news__cta.margin-top-medium 
+            //-     button#nextEventPage.btn.btn__secondary.hid upcoming 
+            //-     span 1/3
+            //-     button#prevEventPage.btn.btn__secondary previous
+        section.board 
+            .title__container 
+                h2.title__header ons team 
+            .board__members.margin-top-large.padding-lr-medium
+                each board in boardMembers
+                    .board__member 
+                        img(src=`/img/board/${board.avatarImg}`, alt=`${board.name}`)
+                        .board__div 
+                            a(href=`mailto:${board.email}?cc=${board.email}`) 
+                                span.header__tertiary=board.name
+                                svg 
+                                    use(xlink:href="/img/sprite.svg#icon-mail")
+                            p.paragraph=board.title
+                            p.paragraph=board.comission
+        hr.margin-top-medium
+        section.board__description.margin-botton-large.margin-top-medium
+            p.paragraph Wij zijn een club van liefhebbers van de Chodsky pes. De club heeft als doel:
+                ul.paragraph 
+                    li de gezondheid en het welzijn van het ras behouden en te bevorderen;
+                    li fokkers en liefhebbers van de Boheemse Herder nader tot elkaar te brengen en voorlichting te geven;
+                    li een goede band tussen baas en hond te bevorderen;
+                    li het ras in stand te houden, danwel te verbeteren.
+            p.paragraph Dit willen wij bereiken door:
+            ul 
+                li het geven van voorlichting;
+                li het organiseren van evenementen;
+                li het verspreiden van informatie welke direct of indirect voor het ras van belang kan zijn;
+                li voorlichting te geven bij aankoop, import, dekking en alles wat het fokken van de Boheemse Herder betreft;
+                li het onderhouden van contact en bevorderen van samenwerking met officiële buitenlandse kennelclubs.
+            p.paragraph De CPCN is opgericht op 18 december 2018 en statutair gevestigd in Apeldoorn onder KvK nummer <i>75236427</i>.
+                br
+                br
+                |De oorsprong van de club ligt bij een kleine groep liefhebbers van de Boheemse Herder die elkaar en de honden beter leerden kennen tijdens wandelingen. Daar groeide het idee om de wandelingen en het onderling contact uit te breiden met meer liefhebbers van de Boheemse Herder. Zo ontstond in november 2018 de naam Chodsky Pes Club Nederland en werd een Facebookpagina opgericht. Deze Facebook-groep groeide snel en de wandelingen werden drukker bezocht.
+                br
+                br
+                |Inmiddels was in juni 2018 door het bestuur van de Raad van Beheer besloten om het stamboek te openen voor de Chodsky pes als nationaal erkend buitenlandse ras in Nederland. Het ras begon steeds meer bekendheid te krijgen en bij de CPCN groeide de wens om een rasvereniging te worden. In december 2018 volgde een formele oprichting bij de notaris.
+                br
+                br
+                |In 2019 heeft de club de Raad van Beheer te Amsterdam aangeschreven met het verzoek de CPCN te erkennen als rasvereniging onder de Raad van Beheer. Op dit moment zijn wij in afwachting van nader bericht van de Raad van Beheer.
+            img(src="/img/CPCN_group_photo.jpg", alt="CPCN group photo").margin-top-medium
+        include _sponsors

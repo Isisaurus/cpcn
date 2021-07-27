@@ -1,0 +1,41 @@
+/////////////////// Sponsors
+.sponsors {
+  grid-column: center-start / center-end;
+  background-color: $color-white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      text-decoration: none;
+      margin: 1rem;
+
+      transition: all 0.1s ease-in;
+    }
+    &:hover,
+    &:active {
+      transition: all 0.3s ease-out;
+      transform: translateY(-5px);
+    }
+  }
+  &__img {
+    max-height: 7rem;
+    max-width: 15rem;
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    justify-content: center;
+    align-content: center;
+    &__img {
+      padding: 0.5rem;
+    }
+  }
+  @media only screen and (max-width: 28rem) {
+    &__img {
+      max-height: 4rem;
+    }
+  }
+}

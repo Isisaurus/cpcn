@@ -1,0 +1,19 @@
+.section__pupinfo {
+  grid-column: center-start / center-end;
+  .paragraph {
+    padding: 1em 0;
+    a {
+      color: inherit;
+    }
+  }
+  :first-child {
+    padding-top: 0;
+  }
+  &__container {
+    column-count: 2;
+    column-gap: 2rem;
+    @media only screen and(max-width:47rem) {
+      column-count: 1;
+    }
+  }
+}

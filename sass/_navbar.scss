@@ -1,0 +1,388 @@
+$navHeight: 4rem;
+.nav {
+  display: grid;
+  grid-template-columns:
+    minmax(2rem, 1fr) [center-start] minmax(min-content, 96rem)
+    [center-end] minmax(2rem, 1fr);
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+  @media only screen and (max-width: 47rem) {
+    height: $navHeight;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.nav__list {
+  grid-column: center-start / center-end;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  font-size: 1.2rem;
+
+  @media only screen and (max-width: 47rem) {
+    display: none;
+    visibility: hidden;
+  }
+  @media only screen and (max-width: 49rem) {
+    font-size: 1rem;
+  }
+
+  // @media only screen and (max-width: 47rem) {
+  //   font-size: 1.2rem;
+  // }
+  // @media only screen and (min-width: 96rem) {
+  //   font-size: 1.4rem;
+  //   height: 7rem;
+  // }
+}
+
+.nav__el {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  transition: all 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    transform: scaleY(0);
+    height: 10px;
+    width: 100%;
+    background-color: $color-primary-light;
+    transition: all 0.3s;
+  }
+  &:hover {
+    &::before {
+      background-color: $color-primary-light;
+      transform: scaleY(1);
+      height: 100%;
+    }
+  }
+  &:active {
+    &::before {
+      background-color: $color-primary-light;
+      transform: scaleY(1);
+      height: 100%;
+    }
+  }
+}
+
+.nav__link,
+.nav__link:link,
+.nav__link:visited {
+  // text-transform: lowercase;
+  text-decoration: none;
+  font-weight: 300;
+  color: $color-white;
+
+  padding: 0.5rem 1.5rem;
+  // @media only screen and (max-width: 47rem) {
+  //   padding: 0.5rem 0.8rem;
+  // }
+}
+
+.nav__cta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+  justify-content: space-between;
+
+  .nav__link {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    &,
+    &:link,
+    &:visited {
+      transition: all 0.3s;
+      text-transform: uppercase;
+      margin-left: 2rem;
+      font-weight: inherit;
+
+      // @media only screen and (max-width: 47rem) {
+      //   margin-left: 0.5rem;
+      // }
+    }
+    &:hover,
+    &:active {
+      transition: all 0.3s;
+      color: $color-primary-light;
+
+      .login_icon,
+      .loggedin_icon,
+      .admin_icon {
+        transition: all 0.3s;
+        fill: $color-primary-light;
+      }
+    }
+  }
+
+  .login_icon,
+  .loggedin_icon,
+  .admin_icon {
+    order: -1;
+    fill: $color-white;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s;
+  }
+}
+.nav__btn {
+  &,
+  &:link,
+  &:visited {
+    transition: all 0.3s;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 1.2rem;
+    letter-spacing: $header-letter-spacing;
+    text-transform: uppercase;
+
+    color: $color-white;
+    background-color: transparent;
+
+    padding: 0.3em 1.8em;
+
+    border: 1px solid $color-white;
+    border-radius: 2rem;
+
+    @media only screen and (max-width: 47rem) {
+      font-size: 1rem;
+      padding: 0.5rem 1.5rem;
+    }
+  }
+  &:hover,
+  &:active {
+    transition: all 0.3s;
+    background-color: $color-primary-light;
+    border: 1px solid $color-primary-light;
+  }
+}
+
+//////////////////// BURGER AND SIDENAV
+
+#burger {
+  display: none;
+  visibility: hidden;
+
+  @media only screen and (max-width: 47rem) {
+    display: block;
+    visibility: visible;
+    cursor: pointer;
+  }
+
+  &.open .nav__icon::before {
+    top: 0;
+    transform: rotateZ(135deg);
+  }
+  &.open .nav__icon::after {
+    top: 0;
+    transform: rotateZ(-135deg);
+  }
+  &.open .nav__icon {
+    background-color: transparent;
+  }
+}
+
+.nav__icon {
+  position: relative;
+
+  &,
+  &::before,
+  &::after {
+    width: 2.5rem;
+    height: 2px;
+    background-color: $color-white;
+    display: inline-block;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+  }
+
+  &::before {
+    top: -0.8rem;
+  }
+
+  &::after {
+    top: 0.8rem;
+  }
+}
+
+.side_nav {
+  position: fixed;
+  z-index: 1000;
+
+  top: $navHeight;
+  right: 0;
+
+  width: 100%;
+
+  // to animate
+  height: 0%;
+  opacity: 0;
+
+  transition: width 0.05s, opacity 0.3s;
+
+  //social media
+  .sm_container {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .sm_icon {
+    fill: $color-white;
+    align-self: center;
+    justify-self: center;
+    width: 3rem;
+    height: 3rem;
+    &:hover,
+    &:active {
+      fill: $color-primary-light;
+    }
+  }
+
+  &__list {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    // margin-right: -14px;
+
+    height: 0%;
+
+    width: 0%;
+
+    font-size: $font-size-default;
+    font-weight: 300;
+    letter-spacing: $header-letter-spacing;
+    text-transform: uppercase;
+    background-color: rgba($color-black, 0.98);
+
+    opacity: 0;
+    transition: width 0.3s, opacity 0.8s;
+
+    & > * {
+      list-style: none;
+      position: relative;
+      cursor: pointer;
+    }
+  }
+  &__el {
+    width: 100%;
+    text-align: center;
+  }
+  &__link {
+    &,
+    &:visited,
+    &:link {
+      display: block;
+      position: relative;
+      z-index: 100;
+      text-decoration: none;
+      color: $color-white;
+      letter-spacing: $header-letter-spacing;
+      padding: 0.8em 0;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-primary-light;
+    }
+  }
+  &__cta {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 1.2rem;
+
+    .cta_nav__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &,
+      &:link,
+      &:visited {
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      &:hover,
+      &:active {
+        color: $color-primary-light;
+
+        svg {
+          transition: all 0.3s;
+          fill: $color-primary-light;
+        }
+      }
+    }
+    @media only screen and (max-width: 28rem) {
+      padding: 0.5rem 1.5rem;
+    }
+
+    .login_icon,
+    .loggedin_icon {
+      order: -1;
+      fill: $color-white;
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 0.5rem;
+      transition: all 0.3s;
+    }
+  }
+  &__btn {
+    &,
+    &:link,
+    &:visited {
+      transition: all 0.3s;
+      text-decoration: none;
+      letter-spacing: $header-letter-spacing;
+      text-transform: uppercase;
+
+      color: $color-white;
+      background-color: transparent;
+
+      padding: 0.3em 1.8em;
+
+      border: 1px solid $color-white;
+      border-radius: 2rem;
+
+      @media only screen and (max-width: 47rem) {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+      }
+    }
+    &:hover,
+    &:active {
+      transition: all 0.3s;
+      color: $color-primary-light;
+      border: 1px solid $color-primary-light;
+    }
+  }
+}

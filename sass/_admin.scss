@@ -1,0 +1,358 @@
+.admin {
+  grid-column: center-start / center-end;
+  display: flex;
+  border-right: 3px;
+  padding: 3rem;
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+  background-color: #fff;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  @media only screen and (max-width: 47rem) {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .admin__menu {
+    border-right: 0.5rem solid rgba($color-grey, 0.4);
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    @media only screen and (max-width: 47rem) {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 0.5rem solid rgba($color-grey, 0.4);
+      margin: 0;
+      margin-bottom: 4rem;
+    }
+    @media only screen and (max-width: 28rem) {
+      font-size: 1rem;
+    }
+  }
+  .admin_nav__el {
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    //button
+    font-family: $font-primary;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+
+    position: relative;
+    z-index: 2;
+
+    @media only screen and (max-width: 47rem) {
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 1rem 2rem;
+    }
+    @media only screen and (max-width: 37.5rem) {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      opacity: 0.6;
+
+      background-color: $color-primary-light;
+      transition: all 0.3s ease;
+
+      @media only screen and (max-width: 47rem) {
+        height: 0%;
+        width: 100%;
+      }
+    }
+    &:hover {
+      &::before {
+        transition: width 0.3s ease;
+        background-color: $color-primary-light;
+        width: 100%;
+
+        @media only screen and (max-width: 47rem) {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    &--active {
+      &::before {
+        width: 0.5rem;
+        background-color: $color-primary-light;
+        opacity: 0.6;
+
+        @media only screen and (max-width: 47rem) {
+          height: 0.3rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__dashboard {
+    flex: 1;
+    .admin_view {
+      display: none;
+      &--active {
+        margin-left: 4rem;
+        display: flex;
+        flex-direction: column;
+        @media only screen and (max-width: 47rem) {
+          margin: 0;
+        }
+      }
+      h2 {
+        width: 100%;
+        align-self: flex-end;
+      }
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &__group {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+
+      div {
+        display: flex;
+        :not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+
+      button {
+        align-self: flex-end;
+      }
+
+      label {
+        display: block;
+        font-size: $font-size-default;
+        font-weight: 500;
+        margin-bottom: 1rem;
+
+        @media only screen and (max-width: 37.5rem) {
+          font-size: 1.2rem;
+        }
+      }
+      input {
+        display: block;
+        font-family: $font-primary;
+        font-size: $font-size-default;
+        border: none;
+        border-radius: $input-field-borderrad;
+        padding: 1.5rem 2rem;
+        background-color: $color-white;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+        &::placeholder {
+          color: rgba($color-black, 0.8);
+          font-weight: 300;
+          font-style: italic;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+          border-bottom: 3px solid $color-primary-light;
+
+          &::-webkit-datetime-edit-month-field {
+            background-color: rgba($color-primary-light, 0.8);
+          }
+          &::-webkit-datetime-edit-day-field {
+            background-color: rgba($color-primary-light, 0.8);
+          }
+          &::-webkit-datetime-edit-year-field {
+            background-color: rgba($color-primary-light, 0.8);
+          }
+          &::-webkit-datetime-edit-hour-field {
+            background-color: rgba($color-primary-light, 0.8);
+          }
+          &::-webkit-datetime-edit-minute-field {
+            background-color: rgba($color-primary-light, 0.8);
+          }
+        }
+        &:focus:invalid {
+          border-bottom: 3px solid $color-invalid-1;
+        }
+        &:valid {
+          border-bottom: 3px solid $color-primary-light;
+        }
+        @media only screen and (max-width: 37.5rem) {
+          font-size: 1.2rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+      textarea {
+        resize: none;
+        display: block;
+        border: none;
+        font-family: inherit;
+        font-size: $font-size-default;
+        color: $color-black;
+        padding: 1.5rem 2rem;
+        background-color: $color-white;
+        border-bottom: 3px solid transparent;
+        border-radius: $input-field-borderrad;
+        transition: all 0.3s;
+
+        &::placeholder {
+          color: rgba($color-black, 0.8);
+          font-weight: 300;
+          font-style: italic;
+        }
+        &:focus {
+          outline: none;
+          box-shadow: 0 1rem 2rem rgba($color-white, 0.15);
+          border-bottom: 3px solid $color-primary-light;
+        }
+        &:focus:invalid {
+          border-bottom: 3px solid $color-invalid-1;
+        }
+
+        @media only screen and (max-width: 37.5rem) {
+          font-size: 1.2rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+.delete {
+  &__container {
+    font-size: $font-size-default;
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 0.5rem 3rem;
+
+      background-color: rgba($color-grey, 0.2);
+      border-radius: $input-field-borderrad;
+      transition: all 0.3s ease;
+    }
+
+    input {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+    }
+    input[type='radio']:checked + label {
+      transition: all 0.3s ease;
+      transform: translateY(-5px);
+      background-color: rgba($color-primary-light, 0.4);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+    }
+
+    @media only screen and (max-width: 47rem) {
+      font-size: 1.4rem;
+      label {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        span {
+          margin: 0;
+        }
+      }
+    }
+    @media only screen and (max-width: 28rem) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+#membershipform {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  grid-gap: 1.5rem;
+  .membershipform__container {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin-bottom: auto;
+    }
+  }
+}
+
+#profile_update_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 4rem;
+  align-items: start;
+  form {
+    .admin__form__group {
+      button {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+// custom upload image btn
+.upload_form {
+  &__group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__input {
+    &::-webkit-file-upload-button {
+      display: none;
+      visibility: hidden;
+    }
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    color: $color-black;
+    border-top-left-radius: $input-field-borderrad;
+    border-bottom-left-radius: $input-field-borderrad;
+    background: rgba($color-grey, 0.2);
+
+    align-self: stretch;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border: solid 3px rgba($color-grey, 0.2);
+    border-top-right-radius: $input-field-borderrad;
+    border-bottom-right-radius: $input-field-borderrad;
+    color: $color-black;
+
+    &:hover {
+      transition: all 0.3s ease;
+      color: $color-primary;
+      border: solid 3px $color-primary;
+    }
+  }
+}
+#upload_image_btn {
+  align-self: flex-start;
+}

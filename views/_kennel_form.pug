@@ -1,0 +1,34 @@
+div.admin_view.admin_view--2
+    h2.header__secondary.margin-bottom-medium Plaats Nieuws
+    form#newsForm.admin__form
+        .admin__form__group 
+            label(for="news_header") Nieuws Kop
+            input(type="text", name="header" required placeholder="Add a news header..")#news_header
+        .admin__form__group 
+            label(for="news_date") Datum
+            div 
+                input(type="date", name="date" required)#news_date
+        .admin__form__group 
+            label(for="news_description") Omschrijving
+            textarea(name="description", cols="20", rows="8" placeholder="Nieuws omschrijving...")#news_description
+        .admin__form__group 
+            button(type="submit")#postNews.btn.btn__primary Plaats Nieuws
+    hr.margin-top-large.margin-bottom-large
+    h2.header__secondary.margin-bottom-medium Verwijder Nieuws
+    form#newsFormDelete.admin__form
+        - if (pups)
+            each pup, i in pups
+                - if (i === 0)
+                    .delete__container
+                        input.deleteNews__input(type="radio", name="news" value=`${pup._id}` id=`${pup._id}` checked)
+                        label(for=`${pup._id}`)
+                            span.header__tertiary--light=pup.header
+                            span=pup.date.toLocaleDateString('nl-NL', {dateStyle: "short"})
+                -else
+                    .delete__container
+                        input.deleteNews__input(id=`${pup._id}` type="radio", name="news" value=`${pup._id}`)
+                        label(for=`${pup._id}`)
+                            span.header__tertiary--light=pup.header
+                            span=pup.date.toLocaleDateString('nl-NL', {dateStyle: "short"}) 
+        .admin__form__group 
+            button(type="submit")#deletetNews.btn.btn__primary Verwijder Geselecteerde 

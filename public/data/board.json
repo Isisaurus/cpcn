@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Maikel Koot",
+    "avatarImg": "maikel.png",
+    "email": "voorzittel@cpcn.nl",
+    "title": "Voorzitter",
+    "comission": ""
+  },
+  {
+    "name": "Dineke Kaaijk",
+    "avatarImg": "dineke.png",
+    "email": "secretaris@cpcn.nl",
+    "title": "Secretaris",
+    "comission": "Pupinfo en fokbegeleiding"
+  },
+  {
+    "name": "Miranda de Jong",
+    "avatarImg": "miranda.png",
+    "email": "penningmeester@cpcn.nl",
+    "title": "Penningmeester",
+    "comission": "Financiën en ledenadministratie"
+  },
+  {
+    "name": "Mathilde in ‘t Veen",
+    "avatarImg": "mathilde.png",
+    "email": "evenementen@cpcn.nl",
+    "title": "Bestuurslid",
+    "comission": "Evenementen"
+  },
+  {
+    "name": "Heidi Heemskerk",
+    "avatarImg": "heidi.png",
+    "email": "redactie@cpcn.nl",
+    "title": "Bestuurslid",
+    "comission": "Sponsoring / website, Redactie ‘Onze Chodsky’"
+  }
+]

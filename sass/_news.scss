@@ -1,0 +1,121 @@
+.news {
+  grid-column: center-start / center-end;
+  display: flex;
+  flex-direction: column;
+
+  font-size: 1.6rem;
+
+  .title__container {
+    flex: 1;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
+
+    @media only screen and (max-width: 47rem) {
+      grid-template-columns: auto;
+      grid-template-rows: repeat(minmax(min-content, 1fr));
+      grid-row-gap: 1rem;
+
+      .event__container,
+      .pup__container {
+        padding-bottom: 2rem;
+        border-bottom: rgba($color-grey, $alpha: 0.4) 0.25rem solid;
+      }
+    }
+
+    .vl {
+      align-self: center;
+      height: 80%;
+      border-right: 0.5rem solid rgba($color-grey, 0.4);
+    }
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    font-size: 1.4rem;
+  }
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+
+      transition: all 0.3s;
+    }
+    &:hover,
+    &:active {
+      transition: all 0.3s;
+      text-decoration: underline;
+    }
+  }
+  &__container {
+    font-size: $font-size-default;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    word-wrap: anywhere;
+
+    &__div {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      :not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    font-size: 1.4rem;
+  }
+}
+
+.description {
+  margin-top: 1.5rem;
+  font-weight: 400;
+  cursor: default;
+
+  @media only screen and (max-width: 37.5rem) {
+    font-size: 1.4rem;
+  }
+}
+
+.pup {
+  display: flex;
+  flex-direction: column;
+  &__container {
+    font-size: $font-size-default;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    &__div {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      :not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    @media only screen and (max-width: 37.5rem) {
+      font-size: 1.4rem;
+    }
+  }
+}

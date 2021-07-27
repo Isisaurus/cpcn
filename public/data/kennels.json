@@ -1,0 +1,25 @@
+[
+  {
+    "kennelName": "Dává Nám",
+    "name": "Heidi Heemskerk",
+    "location": "Ridderkerk",
+    "email": "davanam@ziggo.nl",
+    "coverImg": "dava_nam.png"
+  },
+  {
+    "kennelName": "Din-Mar's",
+    "name": "Dineke Kaaijk",
+    "location": "Nieuwe Pekela",
+    "phone": "+31(0)597 647087",
+    "email": "boheemseherders@gmail.com",
+    "coverImg": "din_mars.png",
+    "website": "http://www.boheemseherder.eu"
+  },
+  {
+    "kennelName": "Friendly Juwels",
+    "location": "Groningen",
+    "phone": "+31 54 515 456",
+    "email": "secretaris@cpcn.nl",
+    "coverImg": "friendly_juwels.png"
+  }
+]

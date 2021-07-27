@@ -1,0 +1,24 @@
+extends base
+
+block content 
+    main.main
+        - if (user.role === 'admin')
+            section.section__header.margin-top-medium.margin-bottom-medium
+                img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+                hr
+                h1.header__primary administratie
+            section.admin.margin-bottom-large 
+                nav#admin_menu.admin__menu 
+                    button(data-tab="1").admin_nav__el.admin_nav__el--active evenementen 
+                    button(data-tab="2").admin_nav__el nieuws 
+                    button(data-tab="3").admin_nav__el galerij 
+                    button(data-tab="4").admin_nav__el Lidmaatschap
+                    button(data-tab="5").admin_nav__el profiel
+                div#dashboard.admin__dashboard 
+                        include _event_form
+                        include _kennel_form
+                        include _gallery_form
+                        include _membership_form
+                        include _profile
+        - else 
+            include error

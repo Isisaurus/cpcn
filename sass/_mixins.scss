@@ -1,0 +1,44 @@
+@mixin auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 6rem;
+  align-items: start;
+}
+
+@mixin input_field {
+  isplay: block;
+  font-family: $font-primary;
+  padding: 1.5em 2em;
+  border: none;
+
+  color: $color-black;
+
+  border-bottom: 3px solid transparent;
+  border-radius: $input-field-borderrad;
+  transition: all 0.3s;
+  &::placeholder {
+    color: $color-black;
+    font-style: italic;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    border-bottom: 3px solid $color-primary-light;
+  }
+  &:focus:invalid {
+    border-bottom: 3px solid $color-invalid-1;
+  }
+
+  @media only screen and (max-width: 37.5rem) {
+    padding: 1em 1.8em;
+  }
+  @media only screen and (max-width: 28rem) {
+    padding: 0.8em 1em;
+  }
+}
+
+@mixin input_label {
+  font-weight: 600;
+  margin: 2em 0 1em;
+  display: block;
+}

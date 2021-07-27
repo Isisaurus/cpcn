@@ -1,0 +1,160 @@
+extends base
+
+block content 
+    main.main 
+        section.section__header.margin-top-medium.margin-bottom-medium
+            img(src="/img/cpcn_logo_tr.png", alt="cpcn logo")
+            hr
+            h1.header__primary kennel informatie
+        section.section__kennels.margin-top-medium 
+            .title__container 
+                h2.title__header Kennels in Nederland 
+            .section__kennels__container.margin-top-medium.padding-lr-medium 
+                p.paragraph Al onze leden die fokken, dienen zich altijd te houden aan het Verenigingsfokreglement van de CPCN. Vragen over fokkers die niet in de fokkerslijst hieronder voorkomen, kunt u mailen naar secretaris@cpcn.nl.
+                    br
+                    br
+                    | Hieronder vindt u een overzicht van de bij de CPCN geregistreerde fokkers.
+                each kennel in kennels
+                    .kennel.margin-bottom-medium.margin-top-medium 
+                        img(src=`/img/breeders/${kennel.coverImg}`, alt=`${kennel.kennelName} kennel`)
+                        .kennel__details
+                            h3.header__tertiary
+                                a(href=`mailto:${kennel.email}?cc=${kennel.email}`)=kennel.kennelName 
+                                    svg.email__icon 
+                                        use(xlink:href="/img/sprite.svg#icon-mail")
+                            ul.kennel__details__list 
+                                if (kennel.name)
+                                    li.kennel__details__el
+                                        svg 
+                                            use(xlink:href="/img/sprite.svg#icon-user") 
+                                        span=kennel.name 
+                                if (kennel.phone)
+                                    li.kennel__details__el
+                                        svg 
+                                            use(xlink:href="/img/sprite.svg#icon-phone") 
+                                        span=kennel.phone
+                                if (kennel.location)
+                                    li.kennel__details__el
+                                        svg 
+                                            use(xlink:href="/img/sprite.svg#icon-map-pin") 
+                                        span=kennel.location
+                                if (kennel.website)
+                                    li.kennel__details__el
+                                        svg 
+                                            use(xlink:href="/img/sprite.svg#icon-globe") 
+                                        a(href=`${kennel.website}`)=kennel.website 
+        //- section.section__kennels__abroad.margin-top-medium 
+        //-     .title__container 
+        //-             h2.title__header Kennels in het Buitenland
+        //-     .container.margin-top-medium.padding-lr-small
+        //-         p.paragraph  Zoals u wellicht wel heeft vernomen is er in de hondenwereld veel onduidelijkheid over de wijze van verantwoord fokken, de raszuiverheid en het verantwoord fokken conform de regelgeving van de Raad van Beheer en FCI.
+        //-         br
+        //-         p.paragraph Ook zien wij helaas dat aspirant eigenaren van een Boheemse herder zich niet goed laten informeren of informatie van derden krijgen die niet reëel zijn voor het ras.
+        //-         br
+        //-         p.paragraph Denk hierbij aan het opperen van mogelijke ziektes, de raszuiverheid, het toekomstperspectief van het ras of het aanbieden van Boheemse herder kruisingen (outcross).
+        //-         br
+        //-         p.paragraph De CPCN staat volledig achter de onderstaande kennels en staat voor raszuiverheid, gezondheid en beheersbaarheid.
+        //-         br
+        //-         p.paragraph Wij staan dus als vereniging voor u klaar om u met onze vooraanstaande fokkers te begeleiden naar een mooie toekomst met uw nieuwe vriend.
+        section.section__stud__nl.margin-top-medium.margin-bottom-medium
+            .title__container 
+                h2.title__header Teven en reuen in Nederland
+            .dogs.padding-lr-medium  
+                p.paragraph Al onze leden die dekreuhouder of fokteefeinenaar zijn, dienen zich altijd te houden aan het Verenigingsfokreglement van de CPCN. Vragen over dekreuen of fokteven die niet in de lijst hieronder voorkomen, kunt u mailen naar secretaris@cpcn.nl.
+                each dog in dogs
+                    if (dog.NL)
+                        .dog.margin-top-medium   
+                            h3.header__tertiary=dog.title 
+                            .dog__details 
+                                table.dog__table 
+                                    tr
+                                        td Roepnaam 
+                                        td=dog.nickname
+                                    - if(dog.gender === "male")
+                                        tr 
+                                            td Geslacht 
+                                            td reu
+                                    - if(dog.gender === "female")
+                                        tr 
+                                            td Geslacht 
+                                            td teef
+                                    tr
+                                        td Geboortedatum 
+                                        td=dog.dateOfBirth.toLocaleDateString('nl-NL', {dateStyle: "short"}) 
+                                    tr 
+                                        td.kpcp KPCP* 
+                                        td=dog.KPCP 
+                                    tr 
+                                        td.nhsb NHSB*
+                                        td=dog.NHSB
+                                    if (dog.kennelName)
+                                        tr 
+                                            td Kennelnaam
+                                            td=dog.kennelName 
+                                    -const healthTable = Object.entries(dog.health);
+                                    each el in healthTable
+                                        if (el[0]==='$init')
+                                            | 
+                                        else if (!el[1])
+                                            | 
+                                        else 
+                                            tr 
+                                                td=el[0]
+                                                td=el[1]
+                                div.dog__contact
+                                    img(src=`/img/studs/${dog.image}`, alt=`${dog.title}`)
+                                    div 
+                                        a(href=`mailto:${dog.email}?cc=${dog.email}`)
+                                            span Neem contact op 
+                                            svg.dog__contact__icon 
+                                                use(xlink:href="/img/sprite.svg#icon-mail") 
+        section.section__stud.margin-top-medium.margin-bottom-medium
+            .title__container 
+                h2.title__header Teven en reuen in het buitenland
+            .dogs.padding-lr-medium  
+                each dog in dogs
+                    if (!dog.NL)
+                        .dog.margin-top-medium   
+                            h3.header__tertiary=dog.title 
+                            .dog__details 
+                                table.dog__table 
+                                    tr
+                                        td Roepnaam 
+                                        td=dog.nickname
+                                    - if(dog.gender === "male")
+                                        tr 
+                                            td Geslacht 
+                                            td reu
+                                    - if(dog.gender === "female")
+                                        tr 
+                                            td Geslacht 
+                                            td teef
+                                    tr
+                                        td Geboortedatum 
+                                        td=dog.dateOfBirth.toLocaleDateString('nl-NL', {dateStyle: "short"}) 
+                                    tr 
+                                        td.kpcp KPCP* 
+                                        td=dog.KPCP 
+                                    if (dog.kennelName)
+                                        tr 
+                                            td Kennelnaam 
+                                            td=dog.kennelName 
+                                    -const healthTable = Object.entries(dog.health);
+                                    each el in healthTable
+                                        if (el[0]==='$init')
+                                            | 
+                                        else if (!el[1])
+                                            | 
+                                        else 
+                                            tr 
+                                                td=el[0]
+                                                td=el[1]
+                                div.dog__contact
+                                    img(src=`/img/studs/${dog.image}`, alt=`${dog.title}`)
+                                    div 
+                                        a(href=`mailto:${dog.email}?cc=${dog.email}`)
+                                            span Neem contact op 
+                                            svg.dog__contact__icon 
+                                                use(xlink:href="/img/sprite.svg#icon-mail") 
+        hr.margin-top-medium
+        include _sponsors

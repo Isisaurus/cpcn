@@ -1,0 +1,8 @@
+.admin_view.admin_view--3 
+    h2.header__secondary.margin-bottom-medium Upload Fotos
+    form#upload_image.admin__form.margin-bottom-medium
+        .upload_form__group
+            input#upload_image_input(type="file" name="image" accept='image/*' required).upload_form__input
+            label(for="upload_image_input").upload_form__label Kies een foto
+        .admin__form__group 
+            button(type="submit" id="upload_image_btn").btn.btn__primary Upload 
